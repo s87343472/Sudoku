@@ -1,0 +1,531 @@
+/* 全局样式 */
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    color: #2c3e50;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 游戏状态栏 */
+.game-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 15px 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.score, .time {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #2c3e50;
+    padding: 8px 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    min-width: 120px;
+    text-align: center;
+}
+
+#current-score {
+    color: #2ecc71;
+}
+
+#time-display {
+    color: #e74c3c;
+}
+
+/* 难度选择器 */
+.difficulty-selector {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.difficulty-selector span {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+#difficulty-select {
+    padding: 8px 15px;
+    font-size: 1em;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    color: #2c3e50;
+}
+
+#difficulty-select:hover {
+    border-color: #2980b9;
+    background-color: #f8f9fa;
+}
+
+#difficulty-select:focus {
+    border-color: #2980b9;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* 游戏控制按钮 */
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#new-game {
+    background-color: #2ecc71;
+    color: white;
+}
+
+#new-game:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+}
+
+#check-solution {
+    background-color: #3498db;
+    color: white;
+}
+
+#check-solution:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background-color: #95a5a6;
+    color: white;
+}
+
+.secondary-btn:hover {
+    background-color: #7f8c8d;
+    transform: translateY(-2px);
+}
+
+/* 数独棋盘 */
+.sudoku-board {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 1px;
+    padding: 10px;
+    background-color: #34495e;
+    border-radius: 12px;
+    margin: 0 auto 25px;
+    max-width: 500px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.cell {
+    aspect-ratio: 1;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.cell:hover:not(.fixed) {
+    background-color: #f8f9fa;
+}
+
+.cell.selected {
+    background-color: #ebf5fb;
+    box-shadow: inset 0 0 0 2px #3498db;
+}
+
+.cell.fixed {
+    color: #7f8c8d;
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+}
+
+.cell.correct {
+    color: #27ae60;
+}
+
+.cell.invalid {
+    color: #c0392b;
+}
+
+/* 数字键盘 */
+.number-pad {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto 25px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.number {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    border: none;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.number:hover {
+    background-color: #3498db;
+    color: white;
+    transform: translateY(-2px);
+}
+
+#erase {
+    grid-column: span 2;
+    background-color: #e74c3c;
+    color: white;
+}
+
+#erase:hover {
+    background-color: #c0392b;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .game-status {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .number-pad {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cell {
+        font-size: 1.2em;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* 游戏规则样式 */
+.game-rules {
+    margin-top: 30px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.game-rules h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.rules-section {
+    margin-bottom: 20px;
+}
+
+.rules-section h3 {
+    color: #34495e;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.rules-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.rules-section li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.rules-section li:before {
+    content: "•";
+    color: #3498db;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.input-group {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#leaderboard-list {
+    margin-top: 1rem;
+}
+
+#leaderboard-list .entry {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+/* 解决方案显示样式 */
+.solution-display {
+    color: #3498db !important;
+    animation: fadeIn 0.5s ease-out;
+    font-weight: bold;
+}
+
+.incorrect {
+    color: #e74c3c !important;
+    text-decoration: line-through;
+    font-size: 0.8em;
+}
+
+.correct {
+    color: #2ecc71 !important;
+    font-weight: bold;
+}
+
+/* 排行榜样式 */
+.leaderboard-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: center;
+    margin: 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+}
+
+.input-form {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.input-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.input-form input {
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    border: 2px solid #bdc3c7;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.input-form input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.submit-btn {
+    background-color: #2ecc71;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+}
+
+.submit-btn:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.entry {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    margin: 8px 0;
+    background: #f8f9fa;
+    border-radius: 6px;
+    transition: transform 0.2s ease;
+}
+
+.entry:hover {
+    transform: translateX(5px);
+    background: #ecf0f1;
+}
+
+.difficulty-btn {
+    padding: 0.8rem 1.5rem;
+    margin: 0 0.5rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.difficulty-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.difficulty-btn.active {
+    background-color: #2196F3;
+    color: white;
+}
+
+/* 难度等级的颜色 */
+.difficulty-btn[data-difficulty="easy"] {
+    border-left: 4px solid #4CAF50;
+}
+
+.difficulty-btn[data-difficulty="medium"] {
+    border-left: 4px solid #FFC107;
+}
+
+.difficulty-btn[data-difficulty="hard"] {
+    border-left: 4px solid #FF9800;
+}
+
+.difficulty-btn[data-difficulty="expert"] {
+    border-left: 4px solid #F44336;
+}
+
+.difficulty-btn[data-difficulty="easy"].active {
+    background-color: #4CAF50;
+}
+
+.difficulty-btn[data-difficulty="medium"].active {
+    background-color: #FFC107;
+}
+
+.difficulty-btn[data-difficulty="hard"].active {
+    background-color: #FF9800;
+}
+
+.difficulty-btn[data-difficulty="expert"].active {
+    background-color: #F44336;
+}
+
+@media (max-width: 500px) {
+    .difficulty-selector {
+        margin: 1rem;
+    }
+
+    .difficulty-btn {
+        margin: 0.25rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}

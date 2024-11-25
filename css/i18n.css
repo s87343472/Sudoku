@@ -1,0 +1,76 @@
+/* 语言选择器样式 */
+.language-selector {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#language-select {
+    padding: 8px 15px;
+    font-size: 1em;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    min-width: 100px;
+    color: #2c3e50;
+}
+
+#language-select:hover {
+    border-color: #2980b9;
+    background-color: #f8f9fa;
+}
+
+#language-select:focus {
+    border-color: #2980b9;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.language-selector-container {
+    display: flex;
+    align-items: center;
+}
+
+.language-selector select {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.language-selector select:hover {
+    border-color: #aaa;
+}
+
+.language-selector select:focus {
+    border-color: #666;
+}
+
+.copyright {
+    color: #666;
+    font-size: 14px;
+}
