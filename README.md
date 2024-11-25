@@ -20,6 +20,10 @@ Un jeu de Sudoku simple et interactif implémenté avec HTML, CSS et JavaScript.
 
 ## 🛠️ Project Structure / 项目结构 / プロジェクト構成 / Structure du projet
 
+
+
+### **English**
+```plaintext
 Sudoku/
 ├── index.html      # Main entry point of the application
 ├── css/            # Directory for CSS files
@@ -28,37 +32,7 @@ Sudoku/
 │   └── script.js   # Game logic and interactivity
 ├── assets/         # Directory for images and other resources
 │   └── (Add your resources here)
-
-
-Sudoku/
-├── index.html      # 应用程序的主入口文件
-├── css/            # CSS 文件夹
-│   └── style.css   # 游戏的主要样式文件
-├── js/             # JavaScript 文件夹
-│   └── script.js   # 游戏逻辑和交互
-├── assets/         # 图像和其他资源文件夹
-│   └── (将资源添加到此处)
-
-
-Sudoku/
-├── index.html      # アプリケーションのメインエントリポイント
-├── css/            # CSS ファイル用のディレクトリ
-│   └── style.css   # ゲームのメインスタイルシート
-├── js/             # JavaScript ファイル用のディレクトリ
-│   └── script.js   # ゲームのロジックとインタラクション
-├── assets/         # 画像やその他のリソース用のディレクトリ
-│   └── (ここにリソースを追加してください)
-
-
-Sudoku/
-├── index.html      # Point d'entrée principal de l'application
-├── css/            # Répertoire pour les fichiers CSS
-│   └── style.css   # Feuille de style principale du jeu
-├── js/             # Répertoire pour les fichiers JavaScript
-│   └── script.js   # Logique et interactivité du jeu
-├── assets/         # Répertoire pour les images et autres ressources
-│   └── (Ajoutez vos ressources ici)
-
+```
 
 ## 🚀 Getting Started / 快速开始 / 始め方 / Démarrage
 
